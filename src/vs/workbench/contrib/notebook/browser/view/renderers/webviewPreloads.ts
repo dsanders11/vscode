@@ -138,6 +138,9 @@ async function webviewPreloads(ctx: PreloadContext) {
 						const scrollTop = scrollTarget.getBoundingClientRect().top + event.view.scrollY;
 						postNotebookMessage<webviewMessages.IScrollToRevealMessage>('scroll-to-reveal', { scrollTop });
 						return;
+					} else if (targetId === 'top') {
+						postNotebookMessage<webviewMessages.IScrollToRevealMessage>('scroll-to-reveal', { scrollTop: 0 });
+						return;
 					}
 				} else {
 					const href = node.getAttribute('href');
