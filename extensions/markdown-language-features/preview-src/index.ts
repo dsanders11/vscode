@@ -78,6 +78,9 @@ onceDocumentLoaded(() => {
 				if (element) {
 					scrollDisabledCount += 1;
 					scrollToRevealSourceLine(element.line, documentVersion, settings);
+				} else if (settings.settings.fragment === 'top') {
+					scrollDisabledCount += 1;
+					scrollToRevealSourceLine(0, documentVersion, settings);
 				}
 			} else {
 				if (!isNaN(settings.settings.line!)) {
